@@ -10,8 +10,7 @@ Information related to GPIO and I3C Pad Design.
   - Switching Behaviour, Boolean logic (different kind of gates), k-map, Boolean Decomposition, De Morgan's Laws
   - State Machine, Timing Diagram, D-Flip-flop, Clock divider, ripple counter, synchronous counter (assignment), sequence detector.
   - Concept of Delay, Dependence on Load and input rise/fall time, Setup Time, Hold Time.
-  - 
-
+  - [Assignment](docs/assignment-ee3-301-network-theory.pdf)
 
 
 # DISCUSSIONS
