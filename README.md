@@ -1,7 +1,7 @@
 # ABOUT
 Information related to GPIO and I3C Pad Design.
 
-#RESOURCES
+# RESOURCES
 
 - **TEXTBOOKS**
   - [**Kang**] Leblebici, Yusuf, Chul Woo Kim, and Sung-Mo (Steve) Kang. CMOS Digital Integrated Circuits Analysis & Design. 4th ed. McGraw-Hill Education, 2014. [folder]/s/axtrki5yilzg8zs/Kang-CMOS-DigitalIC-4thIE-McGrawHill-2015.pdf.
