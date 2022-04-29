@@ -20,6 +20,34 @@ Information related to GPIO and I3C Pad Design.
   - [**Kang**]: **13.1-4** ESD Protection, Input and Output circuits.
   - [**Weste**]: **13.6** Input/Output (I/O) subcircuits.  
 
+# Simulation
+
+**Eldo Quick Start**
+
+- Load environment variables: `module load tools/amsv-2022-2-1`
+  - For getting started on the `module` environment [see here](https://silicon-vlsi.github.io/wiki/wiki-it.html#getting-started) 
+- Create a work area and `cd` into it:
+  - `mkdir eldo`
+  - `cd eldo`
+- Copy an example **netlist**: `cp /home/nfs1/gits/gpio/netlists/inv-chain.cir`
+- Run **Eldo** on it: `eldo inv-chain.cir`
+  - The output file `inv-chain.chi` contains the log of the simulation as well as any output from simulation.
+  - The output file `inv-chain.wdb` contains all the plot data which can be viewed using **EZWave**
+- To check and analyze the plot use EZWave: `ezwave inv-chain.wdb`
+- Assignement:
+  - Check the outputs and make sure the delays are reasonable.
+  - Extract delay, rise/fall time and power using `.MEAS` statement.
+  - Extract delay using `.EXTRACT` statement.
+  - Do PVT sims using `.ALTER` statements.
+- Other Resources:
+  - Example eldo netlists at `/CAD/mentor/amsv/amsv-2022-1-2/examples/eldo`
+  - Example ngspice netlists: `/CAD/opensrc/eda-ngspice/examples`
+  - Manuals, user guides etc: `/CAD/docs/public_html/index.html`
+
+
+
+
+
 # PRE-REQ
 
 - [**Introduction to Linux**](https://github.com/silicon-vlsi-org/module-cs3-301)
