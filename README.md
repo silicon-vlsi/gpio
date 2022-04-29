@@ -37,7 +37,7 @@ Information related to GPIO and I3C Pad Design.
 - Assignement:
   - Check the outputs and make sure the delays are reasonable.
   - Extract delay, rise/fall time and power using `.MEAS` statement.
-  - Extract delay using `.EXTRACT` statement.
+  - Extract delay, rise/fall time and power using `.EXTRACT` statement.
   - Do PVT sims using `.ALTER` statements.
 - Other Resources:
   - Example eldo netlists at `/CAD/mentor/amsv/amsv-2022-1-2/examples/eldo`
