@@ -24,7 +24,7 @@ Information related to GPIO and I3C Pad Design.
 
 **Eldo Quick Start**
 
-- Load environment variables: `module load tools/amsv-2022-2-1`
+- Load environment variables: `module load tools/amsv/2022-2-1`
   - For getting started on the `module` environment [see here](https://silicon-vlsi.github.io/wiki/wiki-it.html#getting-started) 
 - Create a work area and `cd` into it:
   - `mkdir eldo`
