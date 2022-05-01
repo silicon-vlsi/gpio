@@ -9,6 +9,10 @@ Information related to GPIO and I3C Pad Design.
   - [**Hodges**] Hodges, David A., and David. Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology 2005. [folder]/s/olc3j7hkarlwila/HodgesJackson-DesignAndAnalysisOfDigitalIC-3Ed-McGraw-2005.pdf.
   - [**Weste**] Weste, Neil, and David Harris. CMOS VLSI Design: A Circuits and Systems Perspective. Pearson Education, 2011. [folder]/s/ard8jntcpq1pt45/Weste-Harris-CMOS-VLSI-design-Pearson-4thEd-2011.pdf.
 
+- **APP-NOTES/WHITE PAPERS/PAPERS**
+  - [Introduction to the MIPI I3C Standardized Sensor Interface](docs/MIPI_Alliance_I3C_Whitepaper.pdf)
+  - I3C Specs: [folder]/s/6ihhnpu53mopuvk/mipi_I3C_specification_v1-0.pdf
+
 - **LINKS**
   - [I3C Bus on Wikipedia](https://en.wikipedia.org/wiki/I3C_(bus))
 
