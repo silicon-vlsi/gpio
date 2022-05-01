@@ -1,10 +1,10 @@
 * SPICE export by:      S-Edit 2020.3.3
-* Export time:          Sun May  1 20:52:10 2022
+* Export time:          Sun May  1 23:05:15 2022
 * Design path:          /home/nfs1/projects/FEYNMAN/REV2/work/tt-srout/lib.defs
-* Library:              IO_CELLS_FC5V
-* Cell:                 BBC1FC
+* Library:              sandbox
+* Cell:                 test
 * Testbench:            Spice
-* View:                 cmos_sch
+* View:                 schematic
 * Export as:            top-level cell
 * Export mode:          hierarchical
 * Exclude empty:        yes
@@ -16,9 +16,8 @@
 * Exclude simulator commands:  no
 * Exclude global pins:         no
 * Exclude instance locations:  no
-* Control property name(s):    SPICE
+* Control property name(s):    ELDO SPICE
 
-********* Simulation Settings - General Section *********
 *************** Subcircuits ***************
 .subckt io_pe5_fc B D G S 
 * PORT=D TYPE=InOut
@@ -178,10 +177,20 @@ XI3 N_1 GNDO GNDR VDDR N_2 io_bufc_fc $ $x=-140 $y=150 $w=120 $h=160
 XI4 GND PI PO VDD Y N_2 io_ndtr_fc $ $x=160 $y=120 $w=200 $h=220
 .ends
 
+.subckt BBC1FC A EN GNDO GNDR PAD PI PO VDD5 VDDO VDDR Y 
+* PORT=PAD TYPE=InOut
+* PORT=VDD5 TYPE=In
+* PORT=Y TYPE=Out
+* PORT=GNDO TYPE=In
+* PORT=GNDR TYPE=In
+* PORT=VDDR TYPE=In
+* PORT=PO TYPE=Out
+* PORT=VDDO TYPE=In
+* PORT=PI TYPE=In
+* PORT=A TYPE=In
+* PORT=EN TYPE=In
 
-***** Top Level *****
-.subckt BBC1FC_5V PAD PI PO Y A EN GNDO GNDR VDDO VDDR VDD5
-*
 XI0 GNDO GNDO GNDR PAD PI PO VDD5 VDDR Y io_ic_fc $ $x=1100 $y=650 $w=280 $h=180 $m
 XI1 A EN GNDO GNDO PAD VDD5 VDDO io_ts1_fc $ $x=755 $y=865 $w=230 $h=130
 .ends
+

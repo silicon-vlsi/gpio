@@ -1,0 +1,33 @@
+* Testbench for PAD BBC1FC
+
+** Model Library 
+.LIB /PDK/tech_svn/xfab/XKIT/xt018/synopsys/v11_0/hspice/v11_0_1/lp5mos/config.lib default
+.LIB /PDK/tech_svn/xfab/XKIT/xt018/synopsys/v11_0/hspice/v11_0_1/lp5mos/xt018.lib tm
+
+**Parameters
+.PARAM vdd_val=5.0
+.PARAM cpad_val=50p
+.PARAM cy_val=1p
+
+** Include the PAD subckt
+.INCLUDE /home/nfs1/gits/gpio/netlists/BBC1FC.sp
+
+** Instantiate the PAD
+XIPAD nsda agnd agnd agnd PAD PI PO avdd5 avdd5 avdd5 Y BBC1FC 
+
+clpad	PAD 	agnd cpad_val 
+cly   	Y 	agnd cy_val 
+
+* Electrical source definitions
+vdd5 avdd5 agnd vdd_val
+vgnd agnd 0 0
+* pulse(V1 V2 TD TR TF PW PER)
+vsda nsda agnd pulse(0 vdd_val 50n 5n 5n 200n 400n)
+
+* Simulation options & commands
+.tran 0.1n 650n
+.plot tran v(PAD) v(Y) v(nsda)
+*.print tran v(1) v(2) v(3) v(4)
+.option eps=0.5e-3 tnom=50 list node
+.end
+
