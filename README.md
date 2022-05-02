@@ -55,6 +55,8 @@ Information related to GPIO and I3C Pad Design.
   - Do PVT sims using `.ALTER` statements.
 - Assignment-2:
   - Copy `/home/nfs1/gits/gpio/netlists/TB_BBC1FC.cir`
+    - **NOTE** The PAD subcircuit is in HSPICE format so run `eldo` with the `-compat` option eg.
+    - `eldo -compat -i TB_BBC1FC.cir`
   - Extract delay, rise/fall time and power using `.EXTRACT` statement.
   - Do PVT sims using `.STEP` function and then `.ALTER` (Check this [knowledgebase](eldo.md) for difference between `.STEP` and `.ALTER`)
     - Simulate for three corners: `tm,wp,ws`
