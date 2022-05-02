@@ -16,8 +16,8 @@ Information related to GPIO and I3C Pad Design.
     - I3C Specs: [folder]/s/6ihhnpu53mopuvk/mipi_I3C_specification_v1-0.pdf
 
   - **PACKAGING**
-    - Wichern, D. (2005). Chracterizating Cells and Writing a Technology Library File. [PDF](https://www.dropbox.com/s/ob41tfqdnx8cjjj/Wichern-CharacterizingCellsWritingTechnologyLibraryFile-2005.pdf)
-    - Anne, N. (2010). Design and Characterization of a Standard Cell Library for the FREEPDK45 Process. [PDF](https://www.dropbox.com/s/eju3312ptw0xr9k/Anne-DesignCharStdCells-OKSU-2010.pdf)
+    - Wichern, D. (2005). Chracterizating Cells and Writing a Technology Library File. [[PDF](https://www.dropbox.com/s/ob41tfqdnx8cjjj/Wichern-CharacterizingCellsWritingTechnologyLibraryFile-2005.pdf)]
+    - Anne, N. (2010). Design and Characterization of a Standard Cell Library for the FREEPDK45 Process. [[PDF](https://www.dropbox.com/s/eju3312ptw0xr9k/Anne-DesignCharStdCells-OKSU-2010.pdf)]
 
 
 - **LINKS**
