@@ -38,16 +38,27 @@ Information related to GPIO and I3C Pad Design.
   - The output file `inv-chain.chi` contains the log of the simulation as well as any output from simulation.
   - The output file `inv-chain.wdb` contains all the plot data which can be viewed using **EZWave**
 - To check and analyze the plot use EZWave: `ezwave inv-chain.wdb`
-- Assignement:
+
+**ASSIGNMENTS**
+
+- Assignement-1:
   - Check the outputs and make sure the delays are reasonable.
   - Extract delay, rise/fall time and power using `.MEAS` statement.
   - Extract delay, rise/fall time and power using `.EXTRACT` statement.
   - Do PVT sims using `.ALTER` statements.
-- Other Resources:
+- Assignment-2:
+  - Copy `/home/nfs1/gits/gpio/netlists/TB_BBC1FC.cir`
+  - Extract delay, rise/fall time and power using `.EXTRACT` statement.
+  - Do PVT sims using `.STEP` function and then `.ALTER` (Check this [knowledgebase](eldo.md) for difference between `.STEP` and `.ALTER`)
+    - Simulate for three corners: `tm,wp,ws`
+    - Three temperatures: `-40, 25, 125`
+    - Voltage: `5V +/- 10%`
+    - Plot the corners in EZWave  
+
+**Other Resources**
   - Example eldo netlists at `/CAD/mentor/amsv/amsv-2022-1-2/examples/eldo`
   - Example ngspice netlists: `/CAD/opensrc/eda-ngspice/examples`
   - Manuals, user guides etc: `/CAD/docs/public_html/index.html`
-
 
 
 
