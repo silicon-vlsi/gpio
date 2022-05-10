@@ -75,6 +75,80 @@ Information related to GPIO and I3C Pad Design.
 **Resources**
 - [Library Exchange Format (LEF) in Physical Design](https://www.teamvlsi.com/2020/05/lef-lef-file-in-asic-design.html?m=1)
 
+**Knowledge Base**
+
+```verilog
+`timescale 1ns/10ps
+
+`celldefine
+
+module PAD (A, EN, GNDO1V8, GNDR1V8, PAD, PI, PO, VDD, VDDO1V8, VDDR1V8, Y);
+//*****************************************************************
+//   cell_description : Bi-directional Buffer with Non-Inverting CMOS
+//                      Input, Strength 16mA @ 1.8 V, Normal, High noise
+//****************************************************************************
+
+   input     A, EN, GNDO1V8, GNDR1V8, PI, VDD, VDDO1V8, VDDR1V8;
+   inout     PAD;
+   output    PO, Y;
+
+   wire      ck_sub, ck_GNDO1V8, ck_GNDR1V8, ck_VDD, ck_VDDO1V8, ck_VDDR1V8;
+
+   check_gnd i0  (ck_GNDO1V8, GNDO1V8);
+   check_gnd i1  (ck_GNDR1V8, GNDR1V8);
+   check_vdd i2  (ck_VDD, VDD);
+   check_vdd i3  (ck_VDDO1V8, VDDO1V8);
+   check_vdd i4  (ck_VDDR1V8, VDDR1V8);
+
+   and       i5  (ck_sub, ck_GNDO1V8, ck_GNDR1V8, ck_VDD, ck_VDDO1V8, ck_VDDR1V8);
+
+   check_buf i6  (ck_A, A, ck_sub);
+   check_buf i7  (ck_EN, EN, ck_sub);
+   check_buf i8  (ck_PAD, PAD, ck_sub);
+   check_buf i9  (ck_PI, PI, ck_sub);
+// Function PAD: A; Tristate function: EN
+   bufif0    i10 (PAD, ck_A, ck_EN);
+
+// Function PO: !(PAD&PI)
+   nand      i11 (PO, ck_PAD, ck_PI);
+
+// Function Y: PAD
+   buf       i13 (Y, ck_PAD);
+
+// timing section:
+   specify
+
+      (A +=> PAD) = (0.02, 0.02);
+      (EN  => PAD) = (0.02, 0.02, 0.02, 0.02, 0.02, 0.02);
+
+      (PAD -=> PO) = (0.02, 0.02);
+      (PI -=> PO) = (0.02, 0.02);
+
+      (PAD +=> Y) = (0.02, 0.02);
+
+   endspecify
+endmodule
+
+`endcelldefine
+
+```
+
+- Some FAQ on a standard-cell library from a foundry.
+  - Why we use `check_` command in functional section for `GND` and `VDD` ?
+    - `check_vdd`, `check_gnd` are primitives defined by the foundry. Basically checks if the supply/ground has been provided or not.
+    - Check_sub signal is 1 when all power supplies are provided properly.
+  - What's the purpose of multiple `GND` and `VDD` ?
+    - IO rails have provision for multiple power supplies. One for the IO itself and another for the Core. Core logic tends to pick power from one of these power/gnd rails
+  - Why we define `sub wire` in wire section ?
+    - `sub` signal is 1 when all power supplies are provided properly
+  - Why we give ( and ) logic to all VDD and GND ?
+    - To make sure all the power/ground are properly provided. `ck_gnd`, `ck_vdd` are all digital signals. they are 0 if power/ground is not provided and 1 if it’s provided.
+  - What is `check_buf` command and what is use of this command with sub wire ?
+    - The buffer works only when all power supplies are provided to the design properly
+  - In `specify` command, `+ve` and `-ve` polarity how to assign it to which pin ?
+    - `+, -` specifies polarity.. For an inverter you will have  `I -=> Z`, for a buffer you will have `I +=> Z`
+
+
 # PRE-REQ
 
 - [**Introduction to Linux**](https://github.com/silicon-vlsi-org/module-cs3-301)
