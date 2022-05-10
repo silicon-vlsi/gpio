@@ -24,14 +24,14 @@ Information related to GPIO and I3C Pad Design.
   - [I3C Bus on Wikipedia](https://en.wikipedia.org/wiki/I3C_(bus))
 
 
-# IO Design
+# IO DESIGN
 
 - [**SUGGESTED READING**]
   - [**Hodges**]:  **6.5** Gate Sizing for Optimal Delay. 
   - [**Kang**]: **13.1-4** ESD Protection, Input and Output circuits.
   - [**Weste**]: **13.6** Input/Output (I/O) subcircuits.  
 
-# Simulation
+# SIMULATION
 
 **Eldo Quick Start**
 
@@ -60,6 +60,7 @@ Information related to GPIO and I3C Pad Design.
   - Extract delay, rise/fall time and power using `.EXTRACT` statement.
   - Do PVT sims using `.STEP` function and then `.ALTER` (Check this [knowledgebase](eldo.md) for difference between `.STEP` and `.ALTER`)
     - Simulate for three corners: `tm,wp,ws`
+      - Include param.lib to use other corners: `.LIB <path-to-file>/param.lib 3s`
     - Three temperatures: `-40, 25, 125`
     - Voltage: `5V +/- 10%`
     - Plot the corners in EZWave  
@@ -69,8 +70,10 @@ Information related to GPIO and I3C Pad Design.
   - Example ngspice netlists: `/CAD/opensrc/eda-ngspice/examples`
   - Manuals, user guides etc: `/CAD/docs/public_html/index.html`
 
+# PACKAGING
 
-
+**Resources**
+- [Library Exchange Format (LEF) in Physical Design](https://www.teamvlsi.com/2020/05/lef-lef-file-in-asic-design.html?m=1)
 
 # PRE-REQ
 
